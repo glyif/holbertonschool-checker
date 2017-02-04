@@ -2,7 +2,8 @@
 source ./requirements
 
 TEST=`./myscript`
-CORRECT=`pwd`
+CORRECT=`cd`
+
 echo $TEST
 echo $CORRECT
 

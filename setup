@@ -6,5 +6,3 @@ read GITHUBUSR
 
 echo "GITHUBUSR=$GITHUBUSR" > $CONFIG
 
-echo -e 'Which Project do you want to check?\n'
-ls -d */

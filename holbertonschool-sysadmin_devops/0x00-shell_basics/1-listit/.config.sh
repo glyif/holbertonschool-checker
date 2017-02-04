@@ -1,2 +1,0 @@
-#!/bin/bash
-GITHUBUSR=glyif
