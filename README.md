@@ -9,7 +9,7 @@
 
 2) navigate to the project folder and the task you want to check.
 
-IE: `cd /holbertonschool-sysadmin_devops/0x00-shell_basics/0-current_working_directory1
+IE: `cd /holbertonschool-sysadmin_devops/0x00-shell_basics/0-current_working_directory`
 
 3) run the checker file
 
