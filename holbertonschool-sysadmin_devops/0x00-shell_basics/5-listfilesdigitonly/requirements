@@ -1,0 +1,41 @@
+#!/bin/bash
+source ../../../.config.sh
+PROJECT=`pwd | rev | cut -d '/' -f 1-2 | rev`
+wget -O myscript https://raw.githubusercontent.com/$GITHUBUSR/holbertonschool-sysadmin_devops/master/$PROJECT 
+
+chmod u+x myscript
+
+STATE=0
+USRINPUT=myscript
+README=`curl -s --head https://raw.githubusercontent.com/$GITHUBUSR/holbertonschool-sysadmin_devops/master/0x00-shell_basics/README.md | head -n 1 | cut -d ' ' -f 2 `
+FIRSTLINE=`head -n 1 $USRINPUT`
+LINECOUNT=`wc -l $USRINPUT | cut -d ' ' -f 1`
+NOTALLOWED=`grep -e '&&' -e '||' -e ';' myscript | wc -l`
+
+if [ "$STATE" = "0" ]; then
+  if [ "$FIRSTLINE" = "#!/bin/bash" ]; then
+    STATE=0;
+  else
+    STATE=1;
+  fi
+  if [ "$LINECOUNT" = "2" ]; then
+    STATE=0;
+  else
+    STATE=1;
+  fi
+  if [ "$README" = "200" ]; then
+    STATE=0;
+  else
+    STATE=1;
+  fi
+  if [ "$NOTALLOWED" != "0" ]; then
+    STATE=1;
+  else
+    STATE=0;
+  fi
+fi
+echo $STATE
+echo $FIRSTLINE
+echo $LINECOUNT
+echo $README
+echo $NOTALLOWED

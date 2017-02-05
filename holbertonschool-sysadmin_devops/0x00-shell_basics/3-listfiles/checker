@@ -1,0 +1,18 @@
+#!/bin/bash
+source ./requirements
+
+TEST=`./myscript`
+CORRECT=`ls -l`
+
+echo $TEST
+echo $CORRECT
+
+if [ "$STATE" = "0" ]; then
+  if [ "$TEST" = "$CORRECT" ]; then
+    echo "Success"
+  else
+    echo "Failed"
+  fi
+else
+  echo "REQUIREMENTS NOT PASSED"
+fi
